@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //图像系列
+
+        /*1.图像来源
+
+路径图片
+
+直接对 src 赋值
+
+var img=new Image();
+
+img.src='xxx';
+
+页面图片
+
+来源于页面，如果已知id则可通过
+
+document.images 集合
+
+document.getElementsByTagName
+
+document.getElementsById
+
+其他canvas元素
+
+document.getElementsByTagName
+
+document.getElementsById
+
+2.drawImage绘图
+
+context.drawImage(img,x,y)
+
+在画布上定位图像
+
+img 规定要使用的图像、画布或视频。
+
+x 在画布上放置图像的 x 坐标位置。
+
+y 在画布上放置图像的 y 坐标位置。
+
+//获取路径图片
+
+document.getElementById('btn1').onclick = function () {
+
+clearCanvas(context);
+
+var img1 = new Image();
+
+img1.src = '/images/1.jpg';
+
+context.drawImage(img1, 150, 150);
+
+}
+
+context.drawImage(img,x,y,w,h)
+
+在画布上定位图像，并规定图像的宽度和高度
+
+img 规定要使用的图像、画布或视频。
+
+x 在画布上放置图像的 x 坐标位置。
+
+y 在画布上放置图像的 y 坐标位置。
+
+w 要使用的图像的宽度。（伸展或缩小图像）
+
+h 要使用的图像的高度。（伸展或缩小图像）
+
+//获取页面图片
+
+document.getElementById('btn2').onclick = function () {
+
+clearCanvas(context);
+
+var img2 = document.getElementById('imgOne');
+
+context.drawImage(img2, 150, 150, 200, 200);
+
+}
+
+context.drawImage(img,sx,sy,sw,sh,x,y,w,h)
+
+剪切图像，并在画布上定位被剪切的部分
+
+img 规定要使用的图像、画布或视频。
+
+sx 开始剪切的 x 坐标位置。
+
+sy 开始剪切的 y 坐标位置。
+
+sw 被剪切图像的宽度。
+
+sh 被剪切图像的高度。
+
+x 在画布上放置图像的 x 坐标位置。
+
+y 在画布上放置图像的 y 坐标位置。
+
+w 要使用的图像的宽度。（伸展或缩小图像）
+
+h 要使用的图像的高度。（伸展或缩小图像）
+
+//从Canvas获取
+
+document.getElementById('btn3').onclick = function () {
+
+clearCanvas(context);
+
+var img3 = document.getElementById('canvasTwo');
+
+context.drawImage(img3, 150, 150, 300, 250, 50, 50, 400, 300);
+
+}
+
+扩展（不完美）
+
+createPattern（image，type）
+
+image
+
+规定要使用的图片、画布或视频元素
+
+var img=new Image();
+
+type
+
+是否重发
+
+repeat|repeat-x|repeat-y|no-repeat*/
+
+        var canvasObj = document.getElementById('canvasOne');
+
+        var context = canvasObj.getContext('2d');
+
+        var img = new Image();
+
+        img.src = 'http://www.wallcoo.com/animal/Dogs_Summer_and_Winter/wallpapers/1920x1200/DogsB10_Lucy.jpg';
+
+        img.onload = function () {
+
+        context.fillStyle = context.createPattern(img, 'repeat');
+
+        context.fillRect(0, 0, 600, 600);
+
+        }
+
+
+        /*
+        context.fillRect(100, 0, 600, 600);
+        这里的fillRect（x,y,w,h）。x,y既指的是坐标原点，也指的是图片原点
+
+        扩展部分
+
+        绘制贝塞尔曲线
+
+        二次方贝塞尔曲线
+
+        quadraticCurveTo(cp1x,cp1y,x,y)
+
+        cp1x,cp1y是控制点坐标
+
+        x,y是终点坐标*/
+
+    </script>
+</body>
+</html>

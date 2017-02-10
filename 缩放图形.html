@@ -10,46 +10,27 @@
     <canvas id="canvasThree" width="300" height="300"></canvas>
     <script>
 
-        //旋转坐标空间 rotate(angle) angle 代表旋转角度  弧度为单位
-        //在坐标原点顺时针方向旋转
+        //缩 放 图 形
+        /*context.scale(1.1, 1.1)
+        扩大1.1倍
+        rgba(r,g,b,a)
+        a代表透明度，取值范围在 0~1*/
+
+
         var canvasObj = document.getElementById('canvasOne');
         var context = canvasObj.getContext('2d');
-        context.translate(300, 300); //移动坐标轴
-         
-        //画伞
-        function drawUmbrella(i) {
-            //画伞的顶部
-            context.fillStyle = 'rgb(' + i * 25 + ',' + 0 + ',' + 255 + ')';
+        context.translate(300, 300); //移动
+        for (var i = 1; i < 50; i++) {
+            context.rotate(Math.PI / 9);//旋转
+            context.scale(1.1, 1.1);//扩大1.1倍
+            context.translate(0.5, 0.6);//平移
+
+
+            context.fillStyle = 'rgba(' + i * 5 + ',' + 0 + ',' + 200 + ',' + 0.5 + ')';
             context.beginPath();
-            context.arc(0, 0, 30, 0, Math.PI, true);//在起点位置顺时针画一个半圆
+            context.arc(0, 0, 1, 0, Math.PI * 2, true);
             context.closePath();
             context.fill();
-        
-            //画伞的底部
-            context.strokeStyle = "red";
-            context.strokeRect(-0.2, 0, 0.4, 30);
-
-            //画伞的根部
-            context.beginPath();
-            context.arc(-5, 30, 5, 0, Math.PI);//圆心左移五个单位，圆的右边点就在根部了
-            context.stroke();
-        }
-
-         
-
-        function draw() {
-            for (var i = 1; i <= 10; i++) {
-                context.save();//保存一下状态
-                context.rotate(Math.PI * (0.2 * i));//2Pi 弧度是一个圆
-                context.translate(0, 150);//越小越紧凑
-                drawUmbrella(i);//画伞（画伞代码未变）
-                context.restore();//恢复一下状态
-            }
-        }
-
-         
-        window.onload = function () {
-            draw();
         }
 
     </script>

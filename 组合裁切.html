@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="300" height="300"></canvas>
+    <canvas id="canvasTwo" width="500" height="500"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //组合裁切
+
+        /*globalCompositeOperation
+        设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上
+
+        裁切
+        clip()
+        从原始画布中剪切任意形状和尺寸
+
+        从画布中剪切 200*120 像素的矩形区域。然后，绘制绿色矩形。只有被剪切区域内的绿色矩形部分是可见的
+        <p>不使用 clip()：</p>*/
+
+
+        /*var c = document.getElementById("canvasOne");
+        var ctx = c.getContext("2d");
+        ctx.rect(50, 20, 200, 120);
+        ctx.stroke();
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 150, 100);
+
+
+        //<p>使用 clip()：</p>
+        var c = document.getElementById("canvasTwo");
+
+        var ctx = c.getContext("2d");
+
+        // Clip a rectangular area
+
+        ctx.rect(150, 20, 200, 120);
+
+        ctx.stroke();
+
+        ctx.clip();
+
+        // Draw red rectangle after clip()
+
+        ctx.fillStyle = "green";
+
+        ctx.fillRect(0, 0, 150, 100);*/
+
+
+
+
+        function draw() {
+            var ctx = document.getElementById('canvasOne').getContext("2d");
+            // 绘制背景。
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, 300, 300);
+            ctx.fill();
+
+            // 绘制圆形。
+            ctx.beginPath();
+            ctx.arc(150, 150, 130, 0, Math.PI * 2, true);
+
+            // 裁切路径。
+            ctx.clip();
+            ctx.translate(200, 20);
+            for (var i = 1; i < 90; i++) {
+                ctx.save();
+                ctx.transform(0.95, 0, 0, 0.95, 30, 30);
+                ctx.rotate(Math.PI / 12);
+                ctx.beginPath();
+                ctx.fillStyle = "red";
+                ctx.globalAlpha = "0.4";
+                ctx.arc(0, 0, 50, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+        }
+
+        window.onload = function () {
+            draw();
+        }
+
+
+
+
+    </script>
+</body>
+</html>

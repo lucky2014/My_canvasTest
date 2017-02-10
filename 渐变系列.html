@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //渐变系列
+
+        /*线形渐变  createLinearGradient(x0, y0, x1, y1)
+        请使用该对象作为 strokeStyle 或 fillStyle 属性的值
+        x0,y0 渐变起点
+        x1,y1 渐变终点
+        addColorStop(position, color);
+        一般都是设置多个色标
+        position
+        色相偏移值 取值 0~1
+        color 颜色
+        并非一定从0开始，1结束*/
+
+        /*var context = document.getElementById('canvasOne').getContext('2d');
+        var lingrad = context.createLinearGradient(0, 0, 0, 200);
+        lingrad.addColorStop(0, '#ff0000');
+        lingrad.addColorStop(1 / 7, '#ff9900');
+        lingrad.addColorStop(2 / 7, '#ffff00');
+        lingrad.addColorStop(3 / 7, '#00ff00');
+        lingrad.addColorStop(4 / 7, '#00ffff');
+        lingrad.addColorStop(5 / 7, '#0000ff');
+        lingrad.addColorStop(6 / 7, '#ff00ff');
+        lingrad.addColorStop(1, '#ff0000');
+        context.fillStyle = lingrad;
+        context.fillRect(10, 10, 200, 200);*/
+
+
+        /*var c = document.getElementById('canvasOne');
+        var ctx = c.getContext('2d');
+        var grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0.1, 'rgb(255,255,255)');
+        grd.addColorStop(0.5, 'rgb(0,100,0)');
+        grd.addColorStop(0.9, 'rgb(0,0,0)');
+        ctx.fillStyle = grd;
+        ctx.fillRect(20, 20, 150, 100);*/
+
+        ////////////////////////////////
+        //径向渐变
+        /*createRadialGradient(x1,y1,r1,x2,y2,r2)
+        以（x1,y1）为原点，r1为半径的圆
+        以（x2,y2）为原点，r2为半径的圆
+        addColorStop(position, color);
+        一般都是设置多个色标
+        position
+        色相偏移值
+        取值 0~1
+        color 颜色
+        并非一定从0开始，1结束*/
+
+        var ctx = document.getElementById('canvasOne').getContext('2d');
+        var radgrad = ctx.createRadialGradient(55, 55, 20, 100, 100, 90);
+        radgrad.addColorStop(0, 'rgb(255,255,0)');
+        radgrad.addColorStop(0.75, 'rgb(255,0,0)');
+        radgrad.addColorStop(1, 'rgb(255,255,255)');
+        ctx.fillStyle = radgrad;
+        ctx.fillRect(10, 10, 200, 200);
+    </script>
+</body>
+</html>

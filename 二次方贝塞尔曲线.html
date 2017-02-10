@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="600" height="600"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //二次方贝塞尔曲线
+
+        /*var c=document.getElementById("canvasOne");
+
+        var context=c.getContext("2d");
+
+        // 下面开始绘制二次方贝塞尔曲线。
+
+        context.strokeStyle="dark";
+
+        context.beginPath();
+
+        context.moveTo(0,200);
+
+        context.quadraticCurveTo(75,50,300,200);
+
+        context.stroke();
+
+        context.globalCompositeOperation="source-over";
+
+        // 下面绘制的直线用于表示上面曲线的控制点和控制线，控制点坐标即两直线的交点（75,50）。
+
+        context.strokeStyle="#ff00ff";
+
+        context.beginPath();
+
+        context.moveTo(75,50);
+
+        context.lineTo(0,200);
+
+        context.moveTo(75,50);
+
+        context.lineTo(300,200);
+
+        context.stroke();*/
+
+
+        /////////////////
+        //三次方贝塞尔曲线
+
+        /*bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
+
+        cp1x,cp1y是控制点坐标
+
+        cp2x,cp2y是第二个控制点坐标
+
+        x,y是终点坐标*/
+
+
+        var c=document.getElementById("canvasTwo");
+
+        var context=c.getContext("2d");
+
+        // 下面开始绘制三次方贝塞尔曲线。
+
+        context.strokeStyle="dark";
+
+        context.beginPath();
+
+        context.moveTo(0,200);
+
+        context.bezierCurveTo(25,50,75,50,300,200);
+
+        context.stroke();
+
+        context.globalCompositeOperation="source-over";
+
+        // 下面绘制的直线用于表示上面曲线的控制点和控制线，控制点坐标为（25,50）和（75,50）。
+
+        context.strokeStyle="#ff00ff";
+
+        context.beginPath();
+
+        context.moveTo(25,50);
+
+        context.lineTo(0,200);
+
+        context.moveTo(75,50);
+
+        context.lineTo(300,200);
+
+        context.stroke();
+
+    </script>
+</body>
+</html>

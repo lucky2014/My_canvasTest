@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //绘制文字
+
+        /*绘制填充文字
+        fillText（str,x,y,[mw]）
+
+        str
+        文字内容
+
+        x,y
+        起点坐标
+
+        mw
+        最大宽度 可选参数
+
+
+        绘制文字轮廓
+        strokeText（str,x,y,[mw]）
+
+        str
+        文字内容
+
+        x,y
+        起点坐标
+
+        mw
+        最大宽度  可选参数
+
+        测量文字宽度
+        measureText(str)
+        context.measureText(str).width
+
+        文字宽度
+
+        str
+        文字内容
+
+        文字系列属性
+        context.font
+
+        语法
+
+        context.font="italic small-caps bold 12px arial";
+        font-style
+        规定字体样式。可能的值：
+
+        normal
+
+        italic
+
+        斜体字
+
+        oblique
+
+        倾斜
+
+        font-variant
+
+        规定字体变体。可能的值：
+
+        normal
+
+        small-caps
+
+        大写
+
+        font-weight
+
+        规定字体的粗细。可能的值：
+
+        normal
+
+        bold
+
+        bolder
+
+        lighter
+
+        100
+
+        font-family
+
+        规定字体系列。
+
+        font-size / line-height
+
+        规定字号和行高，以像素计。
+
+        icon
+
+        使用用于标记图标的字体。
+
+        menu
+
+        使用用于菜单中的字体（下拉列表和菜单列表）。
+
+        caption
+
+        使用标题控件的字体（比如按钮、下拉列表等）。
+
+        status-bar
+
+        使用用于窗口状态栏中的字体。
+
+        message-box
+
+        使用用于对话框中的字体。
+
+        small-caption
+
+        使用用于标记小型控件的字体。*/
+
+        var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        var str = 'http://dnt.dkill.net';
+        context.fillStyle = 'rgba(255,0,0,0.9)';
+        context.strokeStyle = 'rgba(255,0,0,0.9)';
+
+         
+
+        context.font = '30px 微软雅黑';
+        context.strokeText(str, 100, 40);
+        console.log(context.measureText(str).width);
+        context.fillText(str, 100, 80);
+        console.log(context.measureText(str).width);
+
+         
+
+        context.font = 'bold 50px 微软雅黑';
+        context.strokeText(str, 100, 150);
+        console.log(context.measureText(str).width);
+        context.fillText(str, 100, 180);
+        console.log(context.measureText(str).width);
+
+    </script>
+</body>
+</html>

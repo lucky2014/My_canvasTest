@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        //扩展样式: 线形属性 lineWidth 设置线条粗细默认为1，为正数
+        /*var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        for (var i = 1; i < 12; i++) {
+            context.strokeStyle = 'rgb(255,0,0)';
+            context.lineWidth = i;
+            context.beginPath();
+            context.moveTo(i * 20, 0);
+            context.lineTo(i * 20, 300);
+            //context.closePath();
+            context.stroke();
+        }*/
+
+
+
+        ////////////////////////////////////
+        /*lineCap 设置端点样式
+        butt 平头 默认
+        round 圆头
+        square 方头*/
+
+        /*var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        //定义数组
+        var lineCap = ['butt', 'round', 'square'];
+        // 绘制参考线。
+        context.strokeStyle = 'red';
+        context.beginPath();
+        context.moveTo(10,10);
+        context.lineTo(10,150);
+        context.moveTo(150,10);
+        context.lineTo(150,150);
+        context.stroke();
+
+        // 绘制直线段。
+        context.strokeStyle = 'blue';
+        for (var i = 0; i < lineCap.length; i++) {
+            context.lineWidth = 20;
+            context.lineCap = lineCap[i];
+            context.beginPath();
+            context.moveTo(10, 30 + i * 50);
+            context.lineTo(150, 30 + i * 50);
+            context.stroke();
+        }*/
+
+
+        ///////////////////////////
+        /*lineJoin 设置连接处样式
+        round 圆
+        bevel 斜面
+        miter 默认*/
+
+        /*var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        var lineJoin = ['round', 'bevel', 'miter'];
+        context.strokeStyle = 'rgb(0,0,0)';
+        for (var i = 0; i < lineJoin.length; i++) {
+            context.lineWidth = 25;
+            context.lineJoin = lineJoin[i];
+            context.beginPath();
+            context.moveTo(10 + i * 150, 30);
+            context.lineTo(100 + i * 150, 30);
+            context.lineTo(100 + i * 150, 100);
+            context.stroke();
+        }*/
+
+        /////////////////////////
+        /*miterLimit 设置或返回最大斜接长度
+        前提 lineJoin
+        使用默认属性（miter）*/
+
+        /*var context = document.getElementById('canvasOne').getContext('2d');
+        for (var i = 1; i < 10; i++) {
+            context.strokeStyle = 'blue';
+            context.lineWidth = 10;
+            context.lineJoin = 'miter';
+            context.miterLimit = i * 10;
+            context.beginPath();
+            context.moveTo(10, i * 30);
+            context.lineTo(100, i * 30);
+            context.lineTo(10, 33 * i);  //context.lineTo(10, 13 * i);
+            context.stroke();
+        }*/
+
+
+        ////////////////////////////////
+        //渐变系列
+
+        /*线形渐变  createLinearGradient(x0, y0, x1, y1)
+        请使用该对象作为 strokeStyle 或 fillStyle 属性的值
+        x0,y0 渐变起点
+        x1,y1 渐变终点
+        addColorStop(position, color);
+        一般都是设置多个色标
+        position
+        色相偏移值 取值 0~1
+        color 颜色
+        并非一定从0开始，1结束*/
+
+        /*var context = document.getElementById('canvasOne').getContext('2d');
+        var lingrad = context.createLinearGradient(0, 0, 0, 200);
+        lingrad.addColorStop(0, '#ff0000');
+        lingrad.addColorStop(1 / 7, '#ff9900');
+        lingrad.addColorStop(2 / 7, '#ffff00');
+        lingrad.addColorStop(3 / 7, '#00ff00');
+        lingrad.addColorStop(4 / 7, '#00ffff');
+        lingrad.addColorStop(5 / 7, '#0000ff');
+        lingrad.addColorStop(6 / 7, '#ff00ff');
+        lingrad.addColorStop(1, '#ff0000');
+        context.fillStyle = lingrad;
+        context.fillRect(10, 10, 200, 200);*/
+
+
+        var c = document.getElementById('canvasOne');
+        var ctx = c.getContext('2d');
+        var grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0.1, 'rgb(255,255,255)');
+        grd.addColorStop(0.5, 'rgb(0,100,0)');
+        grd.addColorStop(0.9, 'rgb(0,0,0)');
+        ctx.fillStyle = grd;
+        ctx.fillRect(20, 20, 150, 100);
+
+    </script>
+</body>
+</html>

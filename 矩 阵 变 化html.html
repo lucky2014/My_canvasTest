@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="800" height="800"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        //变换矩阵
+        /*其实像 translate（移动），scale（缩放），rotate（旋转）都是特殊的矩阵变换
+        transform(m11,m12,m21,m22,dx,dy)
+        替换当前的变换矩阵（transform() 允许您缩放、旋转、移动并倾斜当前的环境）
+        水平缩放绘图 m11
+        水平倾斜绘图 m12
+        垂直倾斜绘图 m21
+        垂直缩放绘图 m22
+        水平移动绘图 dx
+        垂直移动绘图 dy
+        setTransform(m11,m12,m21,m22,dx,dy)
+        */
+
+
+        /*var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        context.translate(200, 20);
+        for (var i = 1; i < 90; i++) {
+            context.save();
+            //参数：水平缩放绘图，水平倾斜绘图，垂直倾斜绘图，垂直缩放绘图，水平移动绘图，垂直移动绘图
+            context.transform(0.95, 0, 0, 0.95, 30, 30);
+            context.rotate(Math.PI / 12);//旋转角度
+            context.beginPath();
+            context.fillStyle = "rgba(255,0,0,0.5)";
+            context.arc(0, 0, 50, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fill();
+        }
+
+        //参数：水平缩放绘图，水平倾斜绘图，垂直倾斜绘图，垂直缩放绘图，水平移动绘图，垂直移动绘图
+        context.setTransform(1, 0, 0, 1, 10, 10);
+        //检验一下是否变化过来了
+        context.fillStyle = "blue";
+        context.fillRect(0, 0, 50, 50);
+        context.fill();*/
+
+
+        //扩展样式: 线形属性 lineWidth 设置线条粗细默认为1，为正数
+        var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+        for (var i = 1; i < 12; i++) {
+            context.strokeStyle = 'rgb(255,0,0)';
+            context.lineWidth = i;
+            context.beginPath();
+            context.moveTo(i * 20, 0);
+            context.lineTo(i * 20, 300);
+            //context.closePath();
+            context.stroke();
+        }
+
+
+    </script>
+</body>
+</html>

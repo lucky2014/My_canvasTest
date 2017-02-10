@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+    <canvas id="canvasOne" width="1200" height="1200"></canvas>
+    <canvas id="canvasTwo" width="300" height="300"></canvas>
+    <canvas id="canvasThree" width="300" height="300"></canvas>
+    <script>
+
+        ////////////////////////////////
+        //创建阴影
+
+        /*shadowOffsetX 属性设置或返回形状与阴影的水平距离
+        shadowOffsetX=0 指示阴影位于形状的正下方。
+        shadowOffsetX=20 指示阴影位于形状 left 位置右侧的 20 像素处。
+        shadowOffsetX=-20 指示阴影位于形状 left 位置左侧的 20 像素处。
+
+        shadowOffsetY 属性设置或返回形状与阴影的垂直距离。
+        shadowOffsetY=0 指示阴影位于形状的正下方。
+        shadowOffsetY=20 指示阴影位于形状 top 位置下方的 20 像素处。
+        shadowOffsetY=-20 指示阴影位于形状 top 位置上方的 20 像素处。
+
+        shadowBlur 属性设置或返回阴影的模糊级数。
+
+        shadowColor 属性设置或返回用于阴影的颜色*/
+
+        var canvasObj = document.getElementById('canvasOne');
+        var context = canvasObj.getContext('2d');
+
+
+        //设置前画个图
+        context.fillStyle = '#0094ff';
+        context.fillRect(410, 310, 50, 50);
+
+        //设置阴影
+        context.shadowOffsetX = 3;
+        context.shadowOffsetY = 3;
+        context.shadowBlur = 1;
+        context.shadowColor = '#808080';
+
+
+        //画矩形
+        context.fillRect(200, 200, 200, 100);
+
+
+        //绘图
+        var img = new Image();
+        img.src = '/images/1.jpg';
+        img.onload = function () {
+            context.fillStyle = context.createPattern(img, 'no-repeat');
+            context.fillRect(0, 0, 600, 600);
+        }
+    </script>
+</body>
+</html>
